@@ -1,0 +1,29 @@
+{
+  "name": "jasmine2-as-promised",
+  "version": "1.0.0",
+  "description": "Extends Jasmine 2.x with support for simple async testing with Promises",
+  "main": "index.js",
+  "scripts": {
+    "test": "babel-node node_modules/jasmine/bin/jasmine.js JASMINE_CONFIG_PATH=jasmine.json",
+    "dev": "nodemon -q -w ./ --ext \".\" --exec \"echo TESTING------- && npm test -s\""
+  },
+  "keywords": [
+    "jasmine",
+    "promises",
+    "2",
+    "async",
+    "unit",
+    "testing",
+    "BDD"
+  ],
+  "author": "Joe Zim",
+  "license": "MIT",
+  "dependencies": {
+    "babel": "^5.8.23"
+  },
+  "devDependencies": {
+    "jasmine": "^2.3.2",
+    "nodemon": "^1.7.1",
+    "rsvp": "^3.0.21"
+  }
+}
