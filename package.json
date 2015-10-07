@@ -4,8 +4,9 @@
   "description": "Extends Jasmine 2.x with support for simple async testing with Promises",
   "main": "index.js",
   "scripts": {
+    "pretest": "babel-node bin/pretest",
     "test": "babel-node node_modules/jasmine/bin/jasmine.js JASMINE_CONFIG_PATH=jasmine.json",
-    "dev": "nodemon -q -w ./ --ext \".\" --exec \"echo TESTING------- && npm test -s\""
+    "dev": "nodemon -q -w ./ --ext \".\" --exec \"npm test -s\""
   },
   "keywords": [
     "jasmine",
@@ -22,6 +23,7 @@
     "babel": "^5.8.23"
   },
   "devDependencies": {
+    "chalk": "^1.1.1",
     "jasmine": "^2.3.2",
     "nodemon": "^1.7.1",
     "rsvp": "^3.0.21"

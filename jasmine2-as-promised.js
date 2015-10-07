@@ -16,6 +16,7 @@ function install( env ) {
 	// go through every method name and update the method with that name on the environment
 	methods.forEach(function (methodName) {
 		env[methodName] = wrap(env, env[methodName])
+		env[methodName]
 	})
 
 	return env
@@ -30,7 +31,7 @@ function install( env ) {
  * @return {Function}           The new function that augments the built in Jasmine function
  */
 function wrap (env, oldMethod) {
-	return function () {
+	function newMethod () {
 		// convert the arguments to an array
 		var args = [].slice.call(arguments)
 
@@ -43,6 +44,10 @@ function wrap (env, oldMethod) {
 		// pass the args with the wrapped function to the original method
 		return oldMethod.apply(env, args)
 	}
+
+	newMethod.old = oldMethod;
+
+	return newMethod;
 }
 
 /**
